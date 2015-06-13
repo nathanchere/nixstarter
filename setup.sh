@@ -72,6 +72,22 @@ if [-n "$INSTALL_OHMYZSH"]; then
 	curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 	sudo chsh -s /bin/zsh $LOCALUSERNAME
 fi 
+
+################################################
+# LANGUAGE RUNTIMES / SDKs / COMPILERS / etc
+################################################
+
+if [-n "$INSTALL_NODEJS"]; then
+	curl -sL https://deb.nodesource.com/setup | sudo bash -
+	sudo apt-get install -qq nodejs
+	sudo chown -R $USER ~/.npm
+	sudo chown -R $USER ~/usr/lib/node_modules
+	source ~/.bashrc
+fi
+
+if [-n "$INSTALL_JSDEV"]; then
+	sudo npm install -g yo bower grunt-cli gulp
+fi
  
 ################
 # CLEANUP
