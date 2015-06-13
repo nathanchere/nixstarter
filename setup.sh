@@ -117,6 +117,28 @@ if [-n "$INSTALL_PYGAME"]; then
 	python3 setup.py build
 	sudo python3 setup.py install
 fi
+
+if [-n "$INSTALL_ERLANG"]; then
+	cd $INSTALLDIR
+	
+	## This is for building manually - takes ages, not ideal
+	#git clone https://github.com/erlang/otp.git
+	#cd otp
+	#export ERL_TOP=`pwd`	
+	#./otp_build autoconf
+	#./configure
+	#make
+	
+	wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+	sudo apt-get update
+	sudo apt-get install -qq --no-install-recommends erlang
+fi
+
+if [-n "$INSTALL_ELIXIR"]; then
+	# Assumes erlang-solutions repo added to sources.list - see Erlang step for .deb
+	sudo apt-get update
+	sudo apt-get install -qq elixir
+fi
  
 ################
 # CLEANUP
