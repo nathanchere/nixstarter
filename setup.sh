@@ -139,6 +139,28 @@ if [-n "$INSTALL_ELIXIR"]; then
 	sudo apt-get update
 	sudo apt-get install -qq elixir
 fi
+
+if [-n "$INSTALL_GO"]; then	
+	sudo apt-get install -y golang
+	echo 'export GOROOT=/usr/lib/go' >> ~/.bashrc
+	echo 'export GOPATH=$HOME/go' >> ~/.bashrc
+fi
+
+if [-n "$INSTALL_RUST"]; then
+	cd $INSTALLDIR
+	wget https://static.rust-lang.org/rustup.sh
+	sudo chmod +755 ./rustup.sh
+	./rustup.sh -y
+fi
+
+if [-n "$INSTALL_D"]; then
+	sudo wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt/list -O /etc/apt/sources.lst.d/d-apt.list
+	sudo apt-get update
+	sudo apt-get -qq --allow-unauthenticated install d-apt-keyring
+	sudo apt-get update
+	sudo apt-get -qq install dmd-bin libdsqlite-dev libscid-dev libgl3n-dev dub 	
+	#TODO: install coedit github.com/BBasile/Coedit
+fi
  
 ################
 # CLEANUP
