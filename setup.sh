@@ -97,6 +97,13 @@ if [-n "$INSTALL_HAXE"]; then
 	sudo apt-get install -qq haxe
 fi
 
+if [-n "$INSTALL_CORECLR"]; then
+	sudo apt-get install -qq fsharp
+	mozroots --import --sync # to enable nuget package import
+	curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh && source ~/.dnx/dnvm/dnvm.sh
+	dnvm update -u
+	dnvm install latest -r coreclr -u 
+fi
  
 ################
 # CLEANUP
