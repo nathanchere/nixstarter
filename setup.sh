@@ -161,6 +161,21 @@ if [-n "$INSTALL_D"]; then
 	sudo apt-get -qq install dmd-bin libdsqlite-dev libscid-dev libgl3n-dev dub 	
 	#TODO: install coedit github.com/BBasile/Coedit
 fi
+
+if [-n "$INSTALL_JAVA"]; then
+	sudo apt-get install -qq openjdk-7-jdk	
+fi
+
+if [-n "$INSTALL_SCALA"]; then
+	sudo apt-get install -qq scala
+	#TODO: install SBT
+fi
+
+if [-n "$INSTALL_CLOJURE"]; then
+	sudo apt-get install -qq openjdk-7-jdk clojure1.6
+	sudo wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -O /usr/local/bin/lein
+	sudo chmod +755 /usr/local/bin/lein	
+fi
  
 ################
 # CLEANUP
