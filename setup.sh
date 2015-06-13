@@ -176,6 +176,21 @@ if [-n "$INSTALL_CLOJURE"]; then
 	sudo wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -O /usr/local/bin/lein
 	sudo chmod +755 /usr/local/bin/lein	
 fi
+
+if [-n "$INSTALL_HASKELL"]; then
+	sudo apt-get install -qq haskell-platform
+fi
+
+if [-n "$INSTALL_PHP"]; then
+	sudo apt-get install php5
+	# TODO- if install apache or nginx, add appropriate integration
+fi
+
+if [-n "$INSTALL_RUBY"]; then
+	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+	\curl -sSL https://get.rvm.io | bash -s stable
+	source ~/.rvm/scripts/rvm
+fi
  
 ################
 # CLEANUP
