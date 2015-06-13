@@ -104,6 +104,19 @@ if [-n "$INSTALL_CORECLR"]; then
 	dnvm update -u
 	dnvm install latest -r coreclr -u 
 fi
+
+if [-n "$INSTALL_PYTHON"]; then
+	sudo apt-get install -qq python3-dev python3-numpy idle3
+fi
+
+if [-n "$INSTALL_PYGAME"]; then
+	sudo apt-get install -qq mercurial
+	cd $INSTALLDIR
+	hg clone https://bitbucket.org/pygame/pygame
+	cd $INSTALLDIR/pygame
+	python3 setup.py build
+	sudo python3 setup.py install
+fi
  
 ################
 # CLEANUP
