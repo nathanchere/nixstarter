@@ -20,6 +20,16 @@ sudo apt-get install -qq git git-core mercurial
 sudo apt-get install -qq curl sharutils sed jq autoconf
 
 ################################################
+# MISC BUILD DEPENDENCIES
+################################################
+
+sudo apt-get install -qq -fix-missing build-essential libssh-dev m4 n
+sudo apt-get install -qq -fix-missing ncurses5-dev openssl libssl-dev unzip
+sudo apt-get install -qq -fix-missing libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
+sudo apt-get install -qq -fix-missing libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev libjpeg-dev libfreetype6-dev
+sudo apt-get install -qq -fix-missing libunwind8
+
+################################################
 # FRAMEWORKS / RUNTIMES
 ################################################
 
@@ -33,8 +43,6 @@ fi
 if [-n "$INSTALL_BASE_JAVA"]; then
 	sudo apt-get install -qq openjdk-6-jre openjdk-7-jre
 fi
-
-
 
 ################################################
 # GIT CONFIG

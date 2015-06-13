@@ -3,7 +3,7 @@
 #
 # Copy/paste this into a terminal to get started:
 #
-#   wget -O - https://j.mp/nixstarterbootstrap >> bootstrap.sh && sudo chmod +777 bootstrap.ch && ./bootstrap.sh
+#   wget -O - https://j.mp/nixstarterbootstrap > bootstrap.sh && sudo chmod +777 bootstrap.sh && ./bootstrap.sh
 #
 
 sudo apt-get update
@@ -13,6 +13,4 @@ rm -drf /tmp/nixstarter
 git clone -q https://github.com/nathanchere/nixstarter.git
 cd nixstarter
 
-# Edit the config file how you like it
-
-# then run.sh config.path
+cat help.txt

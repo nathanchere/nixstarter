@@ -1,0 +1,6 @@
+To get started, edit config.sh and set the variables as appropriate
+for you, then run:
+
+    sudo ./setup.sh
+	
+Coming soon: specify where config is loaded from (e.g. DropBox URL)
