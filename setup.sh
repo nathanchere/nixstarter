@@ -19,6 +19,19 @@ sudo apt-get install -qq git git-core mercurial
 sudo apt-get install -qq curl sharutils sed jq autoconf
 
 
+
+################################################
+# SHELL
+################################################
+ 
+if [-n "$INSTALL_ZSH"]; then
+	sudo apt-get install -qq zsh
+fi
+
+if [-n "$INSTALL_OHMYZSH"]; then	
+	curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+	sudo chsh -s /bin/zsh $LOCALUSERNAME
+fi 
  
 ################
 # CLEANUP
