@@ -89,6 +89,15 @@ if [-n "$INSTALL_JSDEV"]; then
 	sudo npm install -g yo bower grunt-cli gulp
 fi
  
+if [-n "$INSTALL_OCAML"]; then
+	sudo apt-get install -qq ocaml camlp4 ocaml-findlib
+fi
+
+if [-n "$INSTALL_HAXE"]; then
+	sudo apt-get install -qq haxe
+fi
+
+ 
 ################
 # CLEANUP
 ################
