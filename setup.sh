@@ -75,7 +75,7 @@ sudo apt-get install -qq --fix-missing libunwind8
 
 if [ -n "$INSTALL_BASE_MONO" ]; then
 	drawHeader "Installing Mono runtime"
-	sudo apt-get install -qq mono-complete
+	sudo apt-get install -qq mono-devel mono-complete
 fi
 
 if [ -n "$INSTALL_BASE_JAVA" ]; then
