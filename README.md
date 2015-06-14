@@ -38,6 +38,8 @@ Feature-specific notes
 
 Installs RVM and uses that for managing Ruby installation(s). To install ruby use `rvm list known` to display available versions, then `rvm install 1.9.3` (using 1.9.3 as an example).
 
+There's some bullshit RVM warning on install about $PATH not being in something something, whatever.
+
 ### Python
 
 Installs Python 3.x. No 2.7 rubbish, because fuck the Luddites. Also installs IDLE as the recommended IDE.
