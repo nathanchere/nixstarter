@@ -16,31 +16,31 @@ GITEMAIL="jcitizen@testemail.coma"
 # UI stuff
 #########################################
 
-INSTALL_ZSH=1
-INSTALL_OHMYZSH=1
+#INSTALL_ZSH=1
+#INSTALL_OHMYZSH=1
 
 #########################################
 # Config stuff
 #########################################
 
-CONFIGURE_GITHUB=1
-CONFIGURE_GITALIASES=1
+#CONFIGURE_GITHUB=1
+#CONFIGURE_GITALIASES=1
 
 #########################################
 # Framework stuff
 #########################################
 
-INSTALL_BASE_MONO=1
-INSTALL_BASE_JAVA=1
+#INSTALL_BASE_MONO=1
+#INSTALL_BASE_JAVA=1
 
 #########################################
 # Dev stuff
 #########################################
 
-INSTALL_NODEJS=1
-INSTALL_JSDEV=1
+#INSTALL_NODEJS=1
+#INSTALL_JSDEV=1
 
-INSTALL_CORECLR=1
+#INSTALL_CORECLR=1
 
 #INSTALL_OCAML=1
 #INSTALL_HAXE=1
