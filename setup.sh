@@ -63,11 +63,11 @@ sudo apt-get install -qq curl sharutils sed jq autoconf
 
 drawHeader "Installing build dependencies"
 
-sudo apt-get install -qq -fix-missing build-essential libssh-dev m4 n
-sudo apt-get install -qq -fix-missing ncurses5-dev openssl libssl-dev unzip
-sudo apt-get install -qq -fix-missing libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
-sudo apt-get install -qq -fix-missing libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev libjpeg-dev libfreetype6-dev
-sudo apt-get install -qq -fix-missing libunwind8
+sudo apt-get install -qq --fix-missing build-essential libssh-dev m4
+sudo apt-get install -qq --fix-missing ncurses5-dev openssl libssl-dev unzip
+sudo apt-get install -qq --fix-missing libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
+sudo apt-get install -qq --fix-missing libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev libjpeg-dev libfreetype6-dev
+sudo apt-get install -qq --fix-missing libunwind8
 
 ################################################
 # FRAMEWORKS / RUNTIMES
@@ -82,9 +82,6 @@ if [ -n "$INSTALL_BASE_JAVA" ]; then
 	drawHeader "Installing Java runtime"
 	sudo apt-get install -qq openjdk-6-jre openjdk-7-jre
 fi
-
-
-exit
 
 ################################################
 # GIT CONFIG
@@ -132,7 +129,7 @@ fi
  
 if [ -n "$INSTALL_OCAML" ]; then
 	sudo apt-get install -qq ocaml camlp4 ocaml-findlib
-fiup
+fi
 
 if [ -n "$INSTALL_HAXE" ]; then
 	sudo apt-get install -qq haxe
