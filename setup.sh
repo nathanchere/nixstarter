@@ -33,14 +33,14 @@ sudo apt-get install -qq -fix-missing libunwind8
 # FRAMEWORKS / RUNTIMES
 ################################################
 
-if [-n "$INSTALL_BASE_MONO"]; then
+if [ -n "$INSTALL_BASE_MONO" ]; then
 	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 	echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
 	sudo apt-get update
 	sudo apt-get install -qq mono-complete
 fi
 
-if [-n "$INSTALL_BASE_JAVA"]; then
+if [ -n "$INSTALL_BASE_JAVA" ]; then
 	sudo apt-get install -qq openjdk-6-jre openjdk-7-jre
 fi
 
@@ -48,7 +48,7 @@ fi
 # GIT CONFIG
 ################################################
 
-if [-n "$CONFIGURE_GITHUB"]; then
+if [ -n "$CONFIGURE_GITHUB" ]; then
 	git config --global user.name "$GITNAME"
 	git config --global user.email "$GITEMAIL"
 	echo -e 'y'|ssh-keygen -t rsa -b 4096 -C "$GITEMAIL" -f ~/.ssh/id_rsa -N ''
@@ -56,7 +56,7 @@ if [-n "$CONFIGURE_GITHUB"]; then
 	curl -u "$GITUSERNAME" --data "{\"title\":\"DevVm_`date +%Y%m%d%H%M%S`\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
 fi
 
-if [-n "$CONFIGURE_GITALIASES"]; then
+if [ -n "$CONFIGURE_GITALIASES" ]; then
 	#TODO
 fi
 
@@ -64,11 +64,11 @@ fi
 # SHELL
 ################################################
  
-if [-n "$INSTALL_ZSH"]; then
+if [ -n "$INSTALL_ZSH" ]; then
 	sudo apt-get install -qq zsh
 fi
 
-if [-n "$INSTALL_OHMYZSH"]; then	
+if [ -n "$INSTALL_OHMYZSH" ]; then	
 	curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 	sudo chsh -s /bin/zsh $LOCALUSERNAME
 fi 
@@ -77,7 +77,7 @@ fi
 # LANGUAGE RUNTIMES / SDKs / COMPILERS / etc
 ################################################
 
-if [-n "$INSTALL_NODEJS"]; then
+if [ -n "$INSTALL_NODEJS" ]; then
 	curl -sL https://deb.nodesource.com/setup | sudo bash -
 	sudo apt-get install -qq nodejs
 	sudo chown -R $USER ~/.npm
@@ -85,19 +85,19 @@ if [-n "$INSTALL_NODEJS"]; then
 	source ~/.bashrc
 fi
 
-if [-n "$INSTALL_JSDEV"]; then
+if [ -n "$INSTALL_JSDEV" ]; then
 	sudo npm install -g yo bower grunt-cli gulp
 fi
  
-if [-n "$INSTALL_OCAML"]; then
+if [ -n "$INSTALL_OCAML" ]; then
 	sudo apt-get install -qq ocaml camlp4 ocaml-findlib
 fi
 
-if [-n "$INSTALL_HAXE"]; then
+if [ -n "$INSTALL_HAXE" ]; then
 	sudo apt-get install -qq haxe
 fi
 
-if [-n "$INSTALL_CORECLR"]; then
+if [ -n "$INSTALL_CORECLR" ]; then
 	sudo apt-get install -qq fsharp
 	mozroots --import --sync # to enable nuget package import
 	curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh && source ~/.dnx/dnvm/dnvm.sh
@@ -105,11 +105,11 @@ if [-n "$INSTALL_CORECLR"]; then
 	dnvm install latest -r coreclr -u 
 fi
 
-if [-n "$INSTALL_PYTHON"]; then
+if [ -n "$INSTALL_PYTHON" ]; then
 	sudo apt-get install -qq python3-dev python3-numpy idle3
 fi
 
-if [-n "$INSTALL_PYGAME"]; then
+if [ -n "$INSTALL_PYGAME" ]; then
 	sudo apt-get install -qq mercurial
 	cd $INSTALLDIR
 	hg clone https://bitbucket.org/pygame/pygame
@@ -118,7 +118,7 @@ if [-n "$INSTALL_PYGAME"]; then
 	sudo python3 setup.py install
 fi
 
-if [-n "$INSTALL_ERLANG"]; then
+if [ -n "$INSTALL_ERLANG" ]; then
 	cd $INSTALLDIR
 	
 	## This is for building manually - takes ages, not ideal
@@ -134,26 +134,26 @@ if [-n "$INSTALL_ERLANG"]; then
 	sudo apt-get install -qq --no-install-recommends erlang
 fi
 
-if [-n "$INSTALL_ELIXIR"]; then
+if [ -n "$INSTALL_ELIXIR" ]; then
 	# Assumes erlang-solutions repo added to sources.list - see Erlang step for .deb
 	sudo apt-get update
 	sudo apt-get install -qq elixir
 fi
 
-if [-n "$INSTALL_GO"]; then	
+if [ -n "$INSTALL_GO" ]; then	
 	sudo apt-get install -y golang
 	echo 'export GOROOT=/usr/lib/go' >> ~/.bashrc
 	echo 'export GOPATH=$HOME/go' >> ~/.bashrc
 fi
 
-if [-n "$INSTALL_RUST"]; then
+if [ -n "$INSTALL_RUST" ]; then
 	cd $INSTALLDIR
 	wget https://static.rust-lang.org/rustup.sh
 	sudo chmod +755 ./rustup.sh
 	./rustup.sh -y
 fi
 
-if [-n "$INSTALL_D"]; then
+if [ -n "$INSTALL_D" ]; then
 	sudo wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt/list -O /etc/apt/sources.lst.d/d-apt.list
 	sudo apt-get update
 	sudo apt-get -qq --allow-unauthenticated install d-apt-keyring
@@ -162,31 +162,31 @@ if [-n "$INSTALL_D"]; then
 	#TODO: install coedit github.com/BBasile/Coedit
 fi
 
-if [-n "$INSTALL_JAVA"]; then
+if [ -n "$INSTALL_JAVA" ]; then
 	sudo apt-get install -qq openjdk-7-jdk	
 fi
 
-if [-n "$INSTALL_SCALA"]; then
+if [ -n "$INSTALL_SCALA" ]; then
 	sudo apt-get install -qq scala
 	#TODO: install SBT
 fi
 
-if [-n "$INSTALL_CLOJURE"]; then
+if [ -n "$INSTALL_CLOJURE" ]; then
 	sudo apt-get install -qq openjdk-7-jdk clojure1.6
 	sudo wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -O /usr/local/bin/lein
 	sudo chmod +755 /usr/local/bin/lein	
 fi
 
-if [-n "$INSTALL_HASKELL"]; then
+if [ -n "$INSTALL_HASKELL" ]; then
 	sudo apt-get install -qq haskell-platform
 fi
 
-if [-n "$INSTALL_PHP"]; then
+if [ -n "$INSTALL_PHP" ]; then
 	sudo apt-get install php5
 	# TODO- if install apache or nginx, add appropriate integration
 fi
 
-if [-n "$INSTALL_RUBY"]; then
+if [ -n "$INSTALL_RUBY" ]; then
 	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 	\curl -sSL https://get.rvm.io | bash -s stable
 	source ~/.rvm/scripts/rvm
