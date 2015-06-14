@@ -1,6 +1,7 @@
 . ./config.sh
 
 INSTALLDIR=`pwd`
+rm -drf $INSTALLDIR/temp
 mkdir $INSTALLDIR/temp
 cd $INSTALLDIR/temp
 

@@ -12,6 +12,10 @@ GITEMAIL="jcitizen@testemail.coma"
 # Do not, for example, try to install PyGame before Python
 #
 
+
+#INSTALL_UTILS=1
+#INSTALL_BUILDLIBS=1
+
 #########################################
 # UI stuff
 #########################################
