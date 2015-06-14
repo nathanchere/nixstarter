@@ -227,3 +227,4 @@ fi
  
 cd ~
 rm -drf $INSTALLDIR
+sudo apt-get clean
