@@ -1,6 +1,8 @@
 . ./config.sh
 
 INSTALLDIR=`pwd`
+mkdir $INSTALLDIR/temp
+cd $INSTALLDIR/temp
 
 drawHeader() {
 	echo " "
@@ -48,20 +50,24 @@ sudo apt-get update -qq
 # ESSENTIALS
 ################################################
 
-drawHeader "Installing essential utils"
-sudo apt-get install -qq git git-core mercurial
-sudo apt-get install -qq curl sharutils sed jq autoconf
+if [ -n "$INSTALL_UTILS" ]; then
+	drawHeader "Installing essential utils"	
+	sudo apt-get install -qq git git-core mercurial
+	sudo apt-get install -qq curl sharutils sed jq autoconf
+fi
 
 ################################################
 # MISC BUILD DEPENDENCIES
 ################################################
 
-drawHeader "Installing build dependencies"
-sudo apt-get install -qq --fix-missing build-essential libssh-dev m4
-sudo apt-get install -qq --fix-missing ncurses-dev libncurses5-dev openssl libssl-dev unzip
-sudo apt-get install -qq --fix-missing libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
-sudo apt-get install -qq --fix-missing libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev libjpeg-dev libfreetype6-dev
-sudo apt-get install -qq --fix-missing libunwind8
+if [ -n "$INSTALL_BUILDLIBS" ]; then
+	drawHeader "Installing build dependencies"
+	sudo apt-get install -qq --fix-missing build-essential libssh-dev m4
+	sudo apt-get install -qq --fix-missing ncurses-dev libncurses5-dev openssl libssl-dev unzip
+	sudo apt-get install -qq --fix-missing libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
+	sudo apt-get install -qq --fix-missing libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev libjpeg-dev libfreetype6-dev
+	sudo apt-get install -qq --fix-missing libunwind8
+fi
 
 ################################################
 # FRAMEWORKS / RUNTIMES
@@ -153,16 +159,16 @@ fi
 if [ -n "$INSTALL_PYGAME" ]; then
 	drawHeader "Installing PyGame"
 	sudo apt-get install -qq mercurial
-	cd $INSTALLDIR
+	cd $INSTALLDIR/temp
 	hg clone https://bitbucket.org/pygame/pygame
-	cd $INSTALLDIR/pygame
+	cd $INSTALLDIR/temp/pygame
 	python3 setup.py build
 	sudo python3 setup.py install
 fi
 
 if [ -n "$INSTALL_ERLANG" ]; then
 	drawHeader "Erlang"
-	cd $INSTALLDIR	
+	#cd $INSTALLDIR/temp
 	## This is for building manually - takes ages, not ideal
 	#git clone https://github.com/erlang/otp.git
 	#cd otp
@@ -187,7 +193,7 @@ fi
 
 if [ -n "$INSTALL_RUST" ]; then
 	drawHeader "Installing Rust"
-	cd $INSTALLDIR
+	cd $INSTALLDIR/temp
 	wget https://static.rust-lang.org/rustup.sh
 	sudo chmod +755 ./rustup.sh
 	./rustup.sh -y
@@ -213,6 +219,7 @@ fi
 
 if [ -n "$INSTALL_CLOJURE" ]; then
 	drawHeader "Installing Clojure"
+	cd $INSTALLDIR/temp
 	sudo apt-get install -qq openjdk-7-jdk clojure1.6
 	sudo wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein -O /usr/local/bin/lein
 	sudo chmod +755 /usr/local/bin/lein	
@@ -239,10 +246,8 @@ fi
 ################
 # CLEANUP
 ################
- 
+
 drawHeader "Complete; cleaning up" 
-
-cd ~
-rm -drf $INSTALLDIR
+cd $INSTALLDIR
+rm -drf $INSTALLDIR/temp
 sudo apt-get clean
-
