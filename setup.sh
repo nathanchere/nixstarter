@@ -1,6 +1,6 @@
 . ./config.sh
 
-INSTALLDIR=pwd
+INSTALLDIR=`pwd`
 
 drawHeader() {
 	echo " "
