@@ -52,9 +52,12 @@ Installs Clojure 1.6.x. Includes Leiningen
 
 ### CoreCLR
 
-Installs DNVM and uses that for manaing CoreCLR installation(s). Newest/current CoreCLR is installed by default.
+Installs DNVM and uses that for manaing CoreCLR installation(s). Newest/current CoreCLR is installed by default. Includes F#.
 
-Includes F#.
+### Erlang, Elixir
+
+Erlang and Elixir are both provided by erlang-solutions.com whose package repository is as flaky as a sunburnt nun's arse crack.
+If you get errors about either install go watch some paint dry and then try again later.
 
 ### JsDev
 

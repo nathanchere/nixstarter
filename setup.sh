@@ -38,7 +38,7 @@ if [ -n "$INSTALL_NODEJS" ]; then
 fi
 
 if [ -n "$INSTALL_ERLANG" ]; then
-	wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+	wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb -O $INSTALLDIR/temp/erlang-solutions_1.0_all.deb && sudo dpkg -i $INSTALLDIR/temp/erlang-solutions_1.0_all.deb
 fi
 
 if [ -n "$INSTALL_D" ]; then
