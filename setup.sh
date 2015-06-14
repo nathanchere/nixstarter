@@ -47,6 +47,10 @@ fi
 
 sudo apt-get update -qq
 
+drawHeader "Upgrading existing packages"
+
+sudo apt-get upgrade -q -y --force-yes
+
 ################################################
 # ESSENTIALS
 ################################################
@@ -125,7 +129,8 @@ if [ -n "$INSTALL_NODEJS" ]; then
 	sudo apt-get install -qq nodejs
 	sudo chown -R $USER ~/.npm
 	sudo chown -R $USER /usr/lib/node_modules
-	. ~/.bashrc # -needed for jsdev npm calls
+	. ~/.bashrc
+	sudo npm install -g npm
 	#. ~/.zshrc # - maybe one day little buddy..
 fi
 
