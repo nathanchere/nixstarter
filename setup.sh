@@ -38,6 +38,14 @@ if [ -n "$INSTALL_NODEJS" ]; then
 	sudo add-apt-repository -y ppa:chris-lea/node.js
 fi
 
+if [ -n "$INSTALL_ERLANG" ]; then
+	wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+fi
+
+if [ -n "$INSTALL_D" ]; then
+	sudo wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt/list -O /etc/apt/sources.lst.d/d-apt.list
+fi
+
 sudo apt-get update -qq
 
 ################################################
@@ -45,6 +53,7 @@ sudo apt-get update -qq
 ################################################
 
 drawHeader "Installing essential utils"
+
 sudo apt-get install -qq git git-core mercurial
 sudo apt-get install -qq curl sharutils sed jq autoconf
 
@@ -123,7 +132,7 @@ fi
  
 if [ -n "$INSTALL_OCAML" ]; then
 	sudo apt-get install -qq ocaml camlp4 ocaml-findlib
-fi
+fiup
 
 if [ -n "$INSTALL_HAXE" ]; then
 	sudo apt-get install -qq haxe
@@ -151,24 +160,18 @@ if [ -n "$INSTALL_PYGAME" ]; then
 fi
 
 if [ -n "$INSTALL_ERLANG" ]; then
-	cd $INSTALLDIR
-	
+	cd $INSTALLDIR	
 	## This is for building manually - takes ages, not ideal
 	#git clone https://github.com/erlang/otp.git
 	#cd otp
 	#export ERL_TOP=`pwd`	
 	#./otp_build autoconf
 	#./configure
-	#make
-	
-	wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
-	sudo apt-get update
+	#make			
 	sudo apt-get install -qq --no-install-recommends erlang
 fi
 
 if [ -n "$INSTALL_ELIXIR" ]; then
-	# Assumes erlang-solutions repo added to sources.list - see Erlang step for .deb
-	sudo apt-get update
 	sudo apt-get install -qq elixir
 fi
 
@@ -186,10 +189,7 @@ if [ -n "$INSTALL_RUST" ]; then
 fi
 
 if [ -n "$INSTALL_D" ]; then
-	sudo wget http://master.dl.sourceforge.net/project/d-apt/files/d-apt/list -O /etc/apt/sources.lst.d/d-apt.list
-	sudo apt-get update
 	sudo apt-get -qq --allow-unauthenticated install d-apt-keyring
-	sudo apt-get update
 	sudo apt-get -qq install dmd-bin libdsqlite-dev libscid-dev libgl3n-dev dub 	
 	#TODO: install coedit github.com/BBasile/Coedit
 fi
