@@ -1,3 +1,16 @@
+if [ "$0" != "bash" ]; then
+	echo " "
+	echo "#######################################################################"
+	echo " "
+	echo "This must be run in bash or shit breaks. Please use:"
+	echo "   sudo bash ./setup.sh"
+	echo " "
+	echo "Thankyou, come again!"
+	echo "#######################################################################"
+	echo " "
+	exit
+fi
+
 . ./config.sh
 
 INSTALLDIR=`pwd`
