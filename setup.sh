@@ -239,7 +239,7 @@ fi
 
 if [ -n "$INSTALL_PHP" ]; then
 	drawHeader "Installing PHP (why, oh why??)"
-	sudo apt-get install php5
+	sudo apt-get install -qq php5
 	# TODO- if install apache or nginx, add appropriate integration
 fi
 
@@ -247,7 +247,7 @@ if [ -n "$INSTALL_RUBY" ]; then
 	drawHeader "Installing Ruby"
 	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 	\curl -sSL https://get.rvm.io | bash -s stable
-	source ~/.rvm/scripts/rvm
+	. ~/.rvm/scripts/rvm
 fi
  
 ################

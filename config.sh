@@ -1,7 +1,3 @@
-#
-# For info on how to use this, read help.txt 
-#
-
 GITUSERNAME="mygithubusername"
 GITNAME="John Citizen"
 GITEMAIL="jcitizen@testemail.coma"
@@ -11,7 +7,6 @@ GITEMAIL="jcitizen@testemail.coma"
 # Comment out the ones you don't want. Note that order is important.
 # Do not, for example, try to install PyGame before Python
 #
-
 
 #INSTALL_UTILS=1
 #INSTALL_BUILDLIBS=1
@@ -56,7 +51,6 @@ GITEMAIL="jcitizen@testemail.coma"
 #INSTALL_ELIXIR=1
 
 #INSTALL_GO=1
-
 #INSTALL_D=1
 #INSTALL_RUST=1
 
@@ -68,10 +62,14 @@ GITEMAIL="jcitizen@testemail.coma"
 #INSTALL_HASKELL=1
 #INSTALL_RUBY=1
 
-## 
+
+
+
+#########################################
+# TODO / COMING SOON (OR PROBABLY NEVER)
+#########################################
 # install mysql
 # install postgresql
 # install mongodb
 # install rabbitmq
-##
-# TODO: Install IDEs separately
+# Install IDEs separately

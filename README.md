@@ -13,7 +13,9 @@ Start the ball rolling by copy/pasting this into a terminal window:
     wget -O - https://raw.githubusercontent.com/nathanchere/nixstarter/master/bootstrap.sh >> bootstrap.sh && sudo chmod +755 bootstrap.sh && ./bootstrap.sh
 
 Edit the newly cloned `config.sh` following the instructions within to edit settings and choose which
-features you want to install. Then run `sudo ./setup.sh` for near instant bliss and enlightenment.
+features you want to install. Then run `sudo ./setup.sh` in bash for near instant bliss and enlightenment.
+
+# YES, IT MUST BE IN BASH. NOT ZSH, NOT FISH, NOT MUSTASH, NOT ANYTHING ELSE. BASH OR GTFO.
 
 Main things it does:
 
