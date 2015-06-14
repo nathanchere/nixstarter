@@ -1,16 +1,3 @@
-if [ "$0" != "bash" ]; then
-	echo " "
-	echo "#######################################################################"
-	echo " "
-	echo "This must be run in bash or shit breaks. Please use:"
-	echo "   sudo bash ./setup.sh"
-	echo " "
-	echo "Thankyou, come again!"
-	echo "#######################################################################"
-	echo " "
-	exit
-fi
-
 . ./config.sh
 
 INSTALLDIR=`pwd`
@@ -137,8 +124,9 @@ if [ -n "$INSTALL_NODEJS" ]; then
 	drawHeader "Installing node"
 	sudo apt-get install -qq nodejs
 	sudo chown -R $USER ~/.npm
-	sudo chown -R $USER ~/usr/lib/node_modules
-	. ~/.zshrc # -needed for jsdev npm calls
+	sudo chown -R $USER /usr/lib/node_modules
+	. ~/.bashrc # -needed for jsdev npm calls
+	#. ~/.zshrc # - maybe one day little buddy..
 fi
 
 if [ -n "$INSTALL_JSDEV" ]; then
