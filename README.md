@@ -67,7 +67,7 @@ Installs common tools for modern Javascript developers like grunt, bower and yeo
 Disclaimer
 ----------
 
-I know this is a shit way of doing things. I'm not a 'bash' guy. I'm learning as
+I know this is a shit way of doing things. I'm not a 'shell' guy. I'm learning as
 I go here and can always see a lot of better ways to do things but right now I just
 want a script that will make it easier for me to get shit done, not another meta-project.
 

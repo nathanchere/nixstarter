@@ -5,8 +5,10 @@ To get started:
 
 	1. cd /tmp/nixstarter
 	2. [ edit config.sh based on what you want to set up ]
-    3. sudo ./setup.sh
-	
+    3. sudo bash ./setup.sh
+
+Note: using bash is important. Some parts currently fuck up under zsh.
+
 Coming soon: specify where config is loaded from (e.g. DropBox URL)
 
 =======================================================================

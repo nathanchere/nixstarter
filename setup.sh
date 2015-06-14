@@ -125,7 +125,7 @@ if [ -n "$INSTALL_NODEJS" ]; then
 	sudo apt-get install -qq nodejs
 	sudo chown -R $USER ~/.npm
 	sudo chown -R $USER ~/usr/lib/node_modules
-	source ~/.bashrc
+	. ~/.zshrc # -needed for jsdev npm calls
 fi
 
 if [ -n "$INSTALL_JSDEV" ]; then
@@ -147,7 +147,7 @@ if [ -n "$INSTALL_CORECLR" ]; then
 	drawHeader "Installing CoreCLR"
 	sudo apt-get install -qq fsharp
 	mozroots --import --sync # to enable nuget package import
-	curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh && source ~/.dnx/dnvm/dnvm.sh
+	curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh && . ~/.dnx/dnvm/dnvm.sh
 	dnvm update -u
 	dnvm install latest -r coreclr -u 
 fi
