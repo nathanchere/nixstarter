@@ -10,7 +10,7 @@ and maybe even others as long as they use the `aptitude` package manager, but YM
 
 Start the ball rolling by copy/pasting this into a terminal window:
 
-    wget -O - https://raw.githubusercontent.com/nathanchere/nixstarter/master/bootstrap.sh >> bootstrap.sh && sudo chmod +755 bootstrap.sh && ./bootstrap.sh
+    wget -O - http://j.mp/nixstarterbootstrap >> bootstrap.sh && sudo chmod +755 bootstrap.sh && ./bootstrap.sh
 
 Edit the newly cloned `config.sh` following the instructions within to edit settings and choose which
 features you want to install. Then run `sudo ./setup.sh` in bash for near instant bliss and enlightenment.
