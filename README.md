@@ -5,8 +5,10 @@ There is nothing revolutionary happening here, it's just a bunch of scripts I pu
 to try and remove some of the friction out of when it comes to
 setting up new Linux-based burner boxes for development. 
 
-*** This is only tested on Xubuntu Core 15.04.*** It should work with other Debian-based distros
-and maybe even others as long as they use the `aptitude` package manager, but YMMV.
+***This is only tested extensively on Xubuntu Core 15.04.***
+
+I have tried it on Xubuntu Core 15.04 and Mint 17 (Cinnamon) where everything worked (except Erlang repo was down - again).
+In theory it should work with most other Debian-based distros and maybe even others as long as they use the `aptitude` package manager, but YMMV.
 
 Start the ball rolling by copy/pasting this into a terminal window:
 
@@ -36,6 +38,10 @@ Things I would like it to do (eventually):
 * Allow loading configuration from a different location (eg Dropbox URL) instead of always `config.sh`.
 * Work properly in zsh
 * Install and configure IDEs based on language choices
+
+Things it will likely never do:
+
+* Give you a nice simplified summary at the end. Output is kept to a minimum but you need to keep an eye out for errors. Most common one I've seen so far is certain PPA repositories temporarily down.
 
 Feature-specific notes
 ---------------------------
