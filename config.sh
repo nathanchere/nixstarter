@@ -62,7 +62,8 @@ GITEMAIL="jcitizen@testemail.coma"
 #INSTALL_HASKELL=1
 #INSTALL_RUBY=1
 
-
+#INSTALL_LUA=1
+#INSTALL_LOVE2D=1
 
 
 #########################################

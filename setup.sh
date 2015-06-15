@@ -37,6 +37,10 @@ if [ -n "$INSTALL_NODEJS" ]; then
 	sudo add-apt-repository -y ppa:chris-lea/node.js
 fi
 
+if [ -n "$INSTALL_LOVE2D" ]; then
+	sudo add-apt-repository -y ppa:bartbes/love-stable
+fi
+
 if [ -n "$INSTALL_ERLANG" ]; then
 	wget http://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb -O $INSTALLDIR/temp/erlang-solutions_1.0_all.deb && sudo dpkg -i $INSTALLDIR/temp/erlang-solutions_1.0_all.deb
 fi
@@ -248,6 +252,16 @@ if [ -n "$INSTALL_RUBY" ]; then
 	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 	\curl -sSL https://get.rvm.io | bash -s stable
 	. ~/.rvm/scripts/rvm
+fi
+
+if [ -n "$INSTALL_LUA" ]; then
+	drawHeader "Installing Lua"	
+	sudo apt-get install -qq lua5.2
+	# TODO - work out what other lua packages are worth having here
+fi
+
+if [ -n "$INSTALL_LOVE2D" ]; then
+	sudo apt-get install love
 fi
  
 ################

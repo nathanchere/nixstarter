@@ -17,7 +17,7 @@ features you want to install. Then run `sudo ./setup.sh` in bash for near instan
 
 # YES, IT MUST BE IN BASH. NOT ZSH, NOT FISH, NOT MUSTASH, NOT ANYTHING ELSE. BASH OR GTFO.
 
-Main things it does:
+Main things it does so far:
 
 * Install general dev essentials (eg git)
 * Install general Linux essentails (eg curl)
@@ -31,7 +31,11 @@ Main things it does:
 	- create new SSH key and add it to your GitHub account
 	- create common git aliases
 
-If you don't want it to do something, comment out the corresponding trigger line in `config.sh`.
+Things I would like it to do (eventually):
+
+* Allow loading configuration from a different location (eg Dropbox URL) instead of always `config.sh`.
+* Work properly in zsh
+* Install and configure IDEs based on language choices
 
 Feature-specific notes
 ---------------------------
