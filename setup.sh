@@ -111,20 +111,6 @@ if [ -n "$CONFIGURE_GITALIASES" ]; then
 fi
 
 ################################################
-# SHELL
-################################################
- 
-if [ -n "$INSTALL_ZSH" ]; then
-	drawHeader "Installing zsh"
-	sudo apt-get install -qq zsh
-	
-	if [ -n "$INSTALL_OHMYZSH" ]; then	
-		curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
-		sudo chsh -s /bin/zsh $LOCALUSERNAME
-	fi 
-fi
-
-################################################
 # LANGUAGE RUNTIMES / SDKs / COMPILERS / etc
 ################################################
 
@@ -157,7 +143,8 @@ if [ -n "$INSTALL_CORECLR" ]; then
 	drawHeader "Installing CoreCLR"
 	sudo apt-get install -qq fsharp
 	mozroots --import --sync # to enable nuget package import
-	curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh && . ~/.dnx/dnvm/dnvm.sh
+	curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_BRANCH=dev sh
+	. ~/.dnx/dnvm/dnvm.sh
 	dnvm update -u
 	dnvm install latest -r coreclr -u 
 fi
@@ -263,7 +250,21 @@ fi
 if [ -n "$INSTALL_LOVE2D" ]; then
 	sudo apt-get install love
 fi
+
+################################################
+# SHELL
+################################################
  
+if [ -n "$INSTALL_ZSH" ]; then
+	drawHeader "Installing zsh"
+	sudo apt-get install -qq zsh
+	
+	if [ -n "$INSTALL_OHMYZSH" ]; then	
+		curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+		sudo chsh -s /bin/zsh $LOCALUSERNAME
+	fi 
+fi
+
 ################
 # CLEANUP
 ################
