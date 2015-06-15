@@ -100,7 +100,9 @@ if [ -n "$CONFIGURE_GITHUB" ]; then
 	drawHeader "Configuring GitHub"
 	git config --global user.name "$GITNAME"
 	git config --global user.email "$GITEMAIL"
+	mkdir ~/.ssh
 	echo -e 'y'|ssh-keygen -t rsa -b 4096 -C "$GITEMAIL" -f ~/.ssh/id_rsa -N ''
+	ssh-agent -c
 	ssh-add ~/.ssh/id_rsa
 	curl -u "$GITUSERNAME" --data "{\"title\":\"DevVm_`date +%Y%m%d%H%M%S`\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" https://api.github.com/user/keys
 fi
