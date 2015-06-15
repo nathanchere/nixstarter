@@ -5,10 +5,13 @@ There is nothing revolutionary happening here, it's just a bunch of scripts I pu
 to try and remove some of the friction out of when it comes to
 setting up new Linux-based burner boxes for development. 
 
-***This is only tested extensively on Xubuntu Core 15.04.***
+This has been tested fairly thoroughly on:
 
-I have tried it on Xubuntu Core 15.04 and Mint 17 (Cinnamon) where everything worked (except Erlang repo was down - again).
-In theory it should work with most other Debian-based distros and maybe even others as long as they use the `aptitude` package manager, but YMMV.
+* Ubuntu Server 15.04
+* Xubuntu Core 15.04
+* Mint 17 (Cinnamon)
+
+In theory it should work with most Debian-based distros. It may even work with others as long as they use the `aptitude` package manager, but YMMV.
 
 Start the ball rolling by copy/pasting this into a terminal window:
 
