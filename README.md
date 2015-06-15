@@ -38,6 +38,7 @@ Things I would like it to do (eventually):
 * Allow loading configuration from a different location (eg Dropbox URL) instead of always `config.sh`.
 * Work properly in zsh
 * Install and configure IDEs based on language choices
+* Set up .gitignore templates, common git hooks etc
 
 Things it will likely never do:
 
