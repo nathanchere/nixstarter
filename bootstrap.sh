@@ -11,4 +11,4 @@ sudo apt-get install -y -q git git-core
 cd /tmp
 rm -drf /tmp/nixstarter
 git clone -q https://github.com/nathanchere/nixstarter.git
-cat /temp/nixstarter/help.txt
+cat /tmp/nixstarter/help.txt
