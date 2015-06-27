@@ -119,7 +119,7 @@ fi
 
 if [ -n "$INSTALL_NODEJS" ]; then	
 	drawHeader "Installing node"
-	sudo apt-get install -qq nodejs
+	sudo apt-get install -qq nodejs npm
 	sudo chown -R $USER ~/.npm
 	sudo chown -R $USER /usr/lib/node_modules
 	. ~/.bashrc
